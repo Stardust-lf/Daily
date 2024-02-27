@@ -1,13 +1,13 @@
-import pickle
+import numpy as np
 
+P = [
+    [13, 12, -2],
+    [12, 17, 6],
+    [-2 , 6, 12]
 
-def load_var(path):
-    with open(path, 'rb') as f:
-        data = pickle.load(f)
-    return data
+]
 
-query = load_var('Query_fea_ORB')
-gallery = load_var('Gallery_fea_ORB')
-print(len(query))
-print(len(gallery))
+x = np.array([1, 0.5, -1]).T
 
+q = [-22, -14.5, 13]
+print(np.matmul(P,x) + q)
